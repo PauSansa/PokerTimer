@@ -12,7 +12,8 @@
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
-    "react-timer-hook": "^3.0.7"
+    "react-timer-hook": "^3.0.7",
+    "tailwindcss-animated": "^1.1.0"
   },
   "devDependencies": {
     "clsx": "^2.1.1",
