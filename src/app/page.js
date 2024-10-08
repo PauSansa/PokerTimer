@@ -7,7 +7,7 @@ export default function Home() {
   const [roundDuration, setRoundDuration] = useState(null);
 
   return (
-    <main className="mt-6 w-full flex flex-col justify-center items-center">
+    <main className="mt-6 w-full flex flex-col h-screen justify-center items-center">
       {roundDuration ? (
         <Game roundDuration={roundDuration} />
       ) : (
