@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useTimer } from "react-timer-hook";
 import sleep from "@/util/sleep";
+import { PlayIcon, PauseIcon, RestartIcon } from "@/lib/icons";
 
 function MyTimer({ roundDuration, nextRound }) {
   const expiryTimestamp = new Date();
@@ -36,19 +37,19 @@ function MyTimer({ roundDuration, nextRound }) {
           className="p-2 bg-gray-800/15 rounded-lg shadow-sm"
           onClick={resume}
         >
-          Play
+          <PlayIcon width={30} height={30} />
         </button>
         <button
           className="p-2 bg-gray-800/15 rounded-lg shadow-sm"
           onClick={pause}
         >
-          Pause
+          <PauseIcon width={30} height={30} />
         </button>
         <button
           className="p-2 bg-gray-800/15 rounded-lg shadow-sm"
           onClick={handleRestart}
         >
-          Restart
+          <RestartIcon width={30} height={30} />
         </button>
       </section>
     </div>

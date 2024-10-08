@@ -51,7 +51,7 @@ export default function Game({ roundDuration }) {
   return (
     <div className="flex flex-col gap-4 w-11/12 mb-8 md:max-w-3xl relative">
       {showChips && <Chips closeChips={() => setShowChips(false)} />}
-      <h1 className="font-bold text-3xl animate-wiggle text-text z-0">
+      <h1 className="md:text-5xl md:mb-6 font-bold text-3xl animate-wiggle mb-4 text-text z-0">
         Sansa&apos;s
         <br />
         Poker Timer
