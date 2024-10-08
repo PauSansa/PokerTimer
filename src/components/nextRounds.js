@@ -1,7 +1,7 @@
 export default function NextRounds({ rounds, currentRound, setCurrentRound }) {
 
     return (
-        <div className="flex flex-col gap-4 w-full mb-2 h-48 overflow-y-scroll">
+        <div className="flex flex-col gap-4 w-full mb-2 h-48 overflow-y-scroll scrollbar-hide">
             {rounds.map((round, index) => {
                 const isCurrentRound = round.lvl === currentRound.lvl;
                 return (

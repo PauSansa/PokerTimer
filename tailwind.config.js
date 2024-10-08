@@ -27,6 +27,7 @@ module.exports = {
     },
   },
   plugins: [
-    require('tailwindcss-animated')
+    require('tailwindcss-animated'),
+    require('tailwind-scrollbar'),
   ],
 };

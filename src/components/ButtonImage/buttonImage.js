@@ -22,6 +22,7 @@ const announcesModes =
 
 
 export default function ButtonImage( { announce, setAnnounce } ) {
+    // Yes, i know...
     function handleClick() {
         switch(announce) {
             case 'tts':
