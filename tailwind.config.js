@@ -16,18 +16,13 @@ module.exports = {
         space: ["var(--font-space)", "monospace"],
       },
       colors: {
-        'text': '#e5f2f2',
-        'background': '#071818',
-        'primary': '#94d9d9',
-        'secondary': '#3e119c',
-        'accent': '#f92944',
-       },
-       
-             
+        text: "#e5f2f2",
+        background: "#071818",
+        primary: "#94d9d9",
+        secondary: "#3e119c",
+        accent: "#f92944",
+      },
     },
   },
-  plugins: [
-    require('tailwindcss-animated'),
-    require('tailwind-scrollbar'),
-  ],
+  plugins: [require("tailwindcss-animated"), require("tailwind-scrollbar")],
 };
