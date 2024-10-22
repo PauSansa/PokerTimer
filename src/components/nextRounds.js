@@ -8,7 +8,7 @@ export default function NextRounds({ rounds, currentRound, setCurrentRound }) {
             key={index}
             onClick={() => setCurrentRound(round)}
             className={`flex flex-row gap-4 items-center justify-center p-2 rounded-lg shadow-lg ${
-              isCurrentRound ? "bg-accent text-black" : "bg-gray-800/15"
+              isCurrentRound ? "bg-accent text-black" : "bg-gray-300/15"
             }`}
           >
             <p className="font-bold text-lg">Round {round.lvl}</p>

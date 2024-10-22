@@ -45,7 +45,7 @@ export default function PreferencesSelector({ setRoundDuration }) {
             </div>
             <button
               type="submit"
-              className="bg-purple-600/85 rounded-lg shadow-xl p-2 ml-2"
+              className="bg-purple-600/85 rounded-lg shadow-xl p-2 ml-2 mb-2"
             >
               Set
             </button>
