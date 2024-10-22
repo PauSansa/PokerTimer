@@ -5,13 +5,11 @@ import { rounds } from "@/lib/round";
 import ShowRound from "@/components/showRound";
 import NextRounds from "@/components/nextRounds";
 import sleep from "@/util/sleep";
-import { useSpeechSynthesis } from "react-speech-kit";
+import { speak } from "@/hooks/useSpeak";
 import ButtonImage from "./ButtonImage/buttonImage";
 import ChipAmounts from "@/components/chipAmounts";
 
 export default function Game({ roundDuration }) {
-  const { speak } = useSpeechSynthesis();
-
   const [chipsIsOpen, setChipsIsOpen] = useState(false);
   const [isChipsAnimating, setIsChipsAnimating] = useState(false);
 
@@ -26,7 +24,7 @@ export default function Game({ roundDuration }) {
   }, []);
 
   function ttsNewRound(round) {
-    speak({ text: `Ronda ${round.lvl}, Peque ${round.sb}, Big ${round.bb}` });
+    speak(`Round ${round.lvl}, Little ${round.sb}, Big ${round.bb}`);
   }
 
   async function alarmNewRound() {
