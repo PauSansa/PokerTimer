@@ -1,13 +1,200 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+/*
+  Casino colours: black room, white cards, green felt, red chips.
+  Type Sora, radius round (tasteskill deal).
+*/
+:root {
+  --p-bg: #050605;
+  --p-felt: #0b7a48;
+  --p-surface: #0c5a37;
+  --p-card: #0c0f0d;
+  --p-ink: #ffffff;
+  --p-muted: #b4bdb8;
+  --p-action: #e0233a;
+  --p-action-ink: #ffffff;
+  --p-signal: #2bd47c;
+  --p-alert: #ff3b4f;
+  --p-line: color-mix(in oklab, var(--p-ink) 14%, transparent);
+  --p-line-strong: color-mix(in oklab, var(--p-ink) 32%, transparent);
+  --p-felt-line: color-mix(in oklab, var(--p-signal) 45%, transparent);
+  color-scheme: dark;
 }
 
-/* For IE, Edge and Firefox */
-.scrollbar-hide {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+/* inline: these resolve where they are used (next/font sets its vars on <body>) */
+@theme inline {
+  --font-sans: var(--font-sora), system-ui, sans-serif;
+
+  --color-bg: var(--p-bg);
+  --color-surface: var(--p-surface);
+  --color-card: var(--p-card);
+  --color-ink: var(--p-ink);
+  --color-muted: var(--p-muted);
+  --color-action: var(--p-action);
+  --color-action-ink: var(--p-action-ink);
+  --color-signal: var(--p-signal);
+  --color-alert: var(--p-alert);
+  --color-felt-line: var(--p-felt-line);
+  --color-line: var(--p-line);
+  --color-line-strong: var(--p-line-strong);
+
+  /* one radius scale */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  --ease-ui: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --animate-enter: enter 600ms var(--ease-ui) both;
+  --animate-swap: swap 240ms var(--ease-ui) both;
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+@keyframes swap {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+@layer base {
+  body {
+    min-height: 100dvh;
+    background-color: var(--p-bg);
+    /* The lamp over the table: a pool of felt green fading into the dark room */
+    background-image:
+      radial-gradient(ellipse 85% 55% at 50% -5%, color-mix(in oklab, var(--p-felt) 70%, transparent) 0%, transparent 72%),
+      radial-gradient(ellipse 120% 80% at 50% 120%, rgb(0 0 0 / 0.8), transparent 60%);
+    background-attachment: fixed;
+    color: var(--p-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--p-signal);
+    outline-offset: 2px;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+@layer components {
+  /* One button system: pill, 48px tall. Hover steps 14% toward the ink and up
+     1px; press sinks 1px below rest and scales .985. */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height: 3rem;
+    padding: 0 1.5rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    font-weight: 500;
+    white-space: nowrap;
+    transition:
+      background-color 150ms var(--ease-ui),
+      border-color 150ms var(--ease-ui),
+      transform 150ms var(--ease-ui);
+  }
+  .btn:active:not(:disabled) {
+    transform: translateY(1px) scale(0.985);
+    transition-duration: 90ms;
+  }
+  .btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  .btn-lg {
+    height: 3.5rem;
+    font-size: 1.0625rem;
+  }
+  .btn-primary {
+    background: var(--p-action);
+    color: var(--p-action-ink);
+  }
+  .btn-secondary {
+    background: color-mix(in oklab, var(--p-bg) 60%, transparent);
+    color: var(--p-ink);
+    border-color: var(--p-line-strong);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-primary:hover:not(:disabled) {
+      background: color-mix(in oklab, var(--p-action) 86%, white);
+      transform: translateY(-1px);
+    }
+    .btn-secondary:hover:not(:disabled) {
+      background: color-mix(in oklab, var(--p-bg) 88%, var(--p-ink));
+      border-color: color-mix(in oklab, var(--p-ink) 35%, transparent);
+      transform: translateY(-1px);
+    }
+  }
+
+  /* Icon-only button, 44px target */
+  .btn-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+  }
+
+  /* Linked card: lifts 2px on hover */
+  .card-link {
+    background: color-mix(in oklab, var(--p-card) 80%, transparent);
+    border: 1px solid var(--p-line);
+    border-radius: var(--radius-md);
+    transition:
+      transform 150ms var(--ease-ui),
+      border-color 150ms var(--ease-ui),
+      box-shadow 150ms var(--ease-ui);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .card-link:hover {
+      transform: translateY(-2px);
+      border-color: var(--p-line-strong);
+      border-color: var(--p-action);
+      box-shadow: 0 12px 28px -14px rgb(0 0 0 / 0.8);
+    }
+  }
+  .card-link:active {
+    transform: translateY(0) scale(0.995);
+    transition-duration: 90ms;
+  }
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--p-line-strong) transparent;
+}
+
+dialog::backdrop {
+  background: rgb(5 8 6 / 0.7);
+  backdrop-filter: blur(3px);
+}
+dialog[open] {
+  animation: enter 200ms var(--ease-ui);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+    transition-property: color, background-color, border-color, opacity !important;
+  }
 }

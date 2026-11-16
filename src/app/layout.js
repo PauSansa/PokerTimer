@@ -1,27 +1,26 @@
-import { Space_Mono } from "next/font/google";
+import { Sora } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
-const spaceMono = Space_Mono({
+const sora = Sora({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-space",
+  variable: "--font-sora",
 });
 
 export const metadata = {
   title: "Sansa's Poker Timer",
   description:
-    "Make your poker games more professional with Sansa's Poker Timer",
+    "Blind timer for home poker games: pick a level length and the clock raises the blinds for you.",
+};
+
+export const viewport = {
+  themeColor: "#121815",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${spaceMono.variable} bg-background font-space text-white  flex flex-col justify-center items-center overflow-x-hidden text-center`}
-      >
-        {children}
-      </body>
+      <body className={`${sora.variable} font-sans`}>{children}</body>
       <GoogleAnalytics gaId="G-YH30BRMJF4" />
     </html>
   );
