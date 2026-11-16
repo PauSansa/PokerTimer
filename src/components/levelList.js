@@ -34,7 +34,7 @@ export default function LevelList({ rounds, currentIndex, onSelect }) {
                 aria-label={`Level ${round.lvl}: blinds ${round.sb} and ${round.bb}`}
                 className={`flex min-h-11 w-full items-center gap-4 rounded-[var(--radius-sm)] px-3.5 text-left transition-colors duration-150 ${
                   isCurrent
-                    ? "bg-action text-action-ink"
+                    ? "bg-surface font-medium text-ink"
                     : isPast
                       ? "text-muted hover:bg-surface"
                       : "hover:bg-surface"

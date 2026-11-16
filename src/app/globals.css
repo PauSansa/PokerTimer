@@ -10,9 +10,10 @@
   --p-surface: #0c5a37;
   --p-card: #0c0f0d;
   --p-ink: #ffffff;
-  --p-muted: #b4bdb8;
+  --p-muted: #bfc7c3;
   --p-action: #e0233a;
   --p-action-ink: #ffffff;
+  /* felt highlight: only for hairlines on felt, never as a second accent */
   --p-signal: #2bd47c;
   --p-alert: #ff3b4f;
   --p-line: color-mix(in oklab, var(--p-ink) 14%, transparent);
@@ -79,7 +80,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--p-signal);
+    outline: 2px solid var(--p-action);
     outline-offset: 2px;
   }
 

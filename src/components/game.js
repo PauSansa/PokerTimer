@@ -166,7 +166,7 @@ export default function Game({ roundDuration, onNewGame }) {
             aria-valuenow={Math.round(progress * 100)}
           >
             <div
-              className={`h-full origin-left rounded-full transition-transform duration-200 ease-linear ${finalMinute ? "bg-alert" : "bg-signal"}`}
+              className={`h-full origin-left rounded-full transition-transform duration-200 ease-linear ${finalMinute ? "bg-alert" : "bg-ink"}`}
               style={{ transform: `scaleX(${progress})` }}
             />
           </div>

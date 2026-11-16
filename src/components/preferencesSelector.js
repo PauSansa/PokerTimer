@@ -54,7 +54,7 @@ export default function PreferencesSelector({ setRoundDuration }) {
                   <span className="text-sm whitespace-nowrap text-muted sm:text-[15px]">
                     About {preference.estimatedDuration} game
                   </span>
-                  <ChevronIcon width={20} height={20} className="text-signal" />
+                  <ChevronIcon width={20} height={20} className="text-muted" />
                 </button>
               </li>
             ))}
@@ -68,7 +68,7 @@ export default function PreferencesSelector({ setRoundDuration }) {
               <span className="text-[15px] font-medium text-muted">
                 Custom length
               </span>
-              <span className="flex h-12 items-center rounded-full border border-line-strong bg-card/70 pr-5 focus-within:border-signal">
+              <span className="flex h-12 items-center rounded-full border border-line-strong bg-card/70 pr-5 focus-within:border-ink">
                 <input
                   type="number"
                   inputMode="numeric"

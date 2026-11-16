@@ -4,8 +4,8 @@ import { CloseIcon } from "@/lib/icons";
 const chipAmounts = [
   { value: 10, quantity: 5, colour: "#e9e6df", name: "White" },
   { value: 20, quantity: 5, colour: "#c8323f", name: "Red" },
-  { value: 50, quantity: 3, colour: "#2b5fb4", name: "Blue" },
-  { value: 100, quantity: 2, colour: "#22825a", name: "Green" },
+  { value: 50, quantity: 3, colour: "#22825a", name: "Green" },
+  { value: 100, quantity: 2, colour: "#2b5fb4", name: "Blue" },
   { value: 500, quantity: 1, colour: "#1b1d1e", name: "Black" },
 ];
 
